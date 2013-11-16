@@ -6,10 +6,10 @@ def findLatency():
 
 def convertLog(log):
     for event in log:
-        if event[2] == 1:
-            event[2] == "P"
-        elif event[2] == 0:
-            event[2] == "R"
+        if event[3] == 1:
+            event[3] == "P"
+        elif event[3] == 0:
+            event[3] == "R"
 
 def analyzeLog(path):
     log = []
@@ -20,4 +20,4 @@ def analyzeLog(path):
     f.close()
 
     for x in log:
-        print x[2]
+        print x[3]

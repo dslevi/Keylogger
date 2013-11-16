@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import logMaker, analyze
-import random
+import random, datetime
 
 #changing depending on the user
 user = random.randint(100, 999)
@@ -9,9 +9,7 @@ user = random.randint(100, 999)
 port = 7
 #hide this?
 directory = "/var/log/keylogs/"
+path = directory + str(user) + "date" + str(datetime.datetime.now()) + ".txt"
 
-if (logMaker.createLog(port, str(user), directory)):
-    f = open(directory + str(user) + "log.txt", "r")
-    log = f.read()
-    f.close()
-    profile = analyze.analyzeLog(log)
+if (logMaker.createLog(port, path, directory)):
+    profile = analyze.analyzeLog(path)
